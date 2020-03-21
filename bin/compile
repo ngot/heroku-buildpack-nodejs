@@ -253,7 +253,7 @@ build_dependencies() {
 #   else
 #     npm_node_modules "$BUILD_DIR"
 #   fi
-  yarn add bolt -g
+  npm install bolt -g
   bolt
 
   mtime "modules.time.cache.$cache_status" "${start}"
