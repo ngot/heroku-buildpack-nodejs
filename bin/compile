@@ -253,13 +253,10 @@ build_dependencies() {
 #   else
 #     npm_node_modules "$BUILD_DIR"
 #   fi
-  cd projects/frontend
-  yarn
-  yarn build
-  cd ..
-  cd backend
-  npm i --production
-
+  
+  npm i bolt -g
+  bolt
+  
   mtime "modules.time.cache.$cache_status" "${start}"
 
   meta_set "build-step" "build-script"
