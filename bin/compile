@@ -245,14 +245,16 @@ build_dependencies() {
   cache_status="$(get_cache_status "$CACHE_DIR")"
   start=$(nowms)
 
-  if $YARN; then
-    yarn_node_modules "$BUILD_DIR"
-  elif $PREBUILD; then
-    echo "Prebuild detected (node_modules already exists)"
-    npm_rebuild "$BUILD_DIR"
-  else
-    npm_node_modules "$BUILD_DIR"
-  fi
+#   if $YARN; then
+#     yarn_node_modules "$BUILD_DIR"
+#   elif $PREBUILD; then
+#     echo "Prebuild detected (node_modules already exists)"
+#     npm_rebuild "$BUILD_DIR"
+#   else
+#     npm_node_modules "$BUILD_DIR"
+#   fi
+  yarn add bolt -g
+  bolt
 
   mtime "modules.time.cache.$cache_status" "${start}"
 
